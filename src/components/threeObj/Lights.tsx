@@ -2,7 +2,6 @@ import { useThree } from "@react-three/fiber";
 import { useRef, useEffect } from "react";
 import * as THREE from "three";
 export const Light = () => {
-  const three = useThree();
   const lightRef = useRef<THREE.DirectionalLight>(null);
   useEffect(() => {
     const light = lightRef.current;
@@ -22,7 +21,12 @@ export const Light = () => {
   return (
     <>
       <ambientLight castShadow intensity={0.3} />
-      <directionalLight ref={lightRef} castShadow intensity={0.5} />
+      <directionalLight
+        ref={lightRef}
+        castShadow
+        intensity={0.5}
+        position={[2, 10, -5]}
+      />
     </>
   );
 };

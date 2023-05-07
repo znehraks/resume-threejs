@@ -11,7 +11,7 @@ export const Floor = () => {
   return (
     <mesh castShadow receiveShadow name="floor" rotation={[-Math.PI / 2, 0, 0]}>
       <planeGeometry args={[50, 50]} />
-      <meshStandardMaterial map={floorTexture} />
+      <meshStandardMaterial shadowSide={THREE.BackSide} map={floorTexture} />
     </mesh>
   );
 };

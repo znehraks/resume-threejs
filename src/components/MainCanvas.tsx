@@ -8,12 +8,17 @@ import { House } from "./threeObj/House";
 import { Spot } from "./threeObj/Spot";
 import { Light } from "./threeObj/Lights";
 import { Wall } from "./threeObj/Wall";
-import { WALL_SIDE_TYPE } from "./constants";
+import { WALL_SIDE_TYPE } from "./types";
+import { Books } from "./threeObj/Books";
+import { Rug } from "./threeObj/Rug";
+import { LogoBox } from "./threeObj/LogoBox";
+import { logos } from "./data";
 
 export const MainCanvas = () => {
   const aspectRatio = window.innerWidth / window.innerHeight;
   return (
     <Canvas
+      gl={{ antialias: true }}
       shadows={{
         enabled: true,
         autoUpdate: true,
@@ -38,6 +43,19 @@ export const MainCanvas = () => {
       ))}
       <Player />
       <House />
+      <Books />
+      <Rug />
+      {logos.map(({ name, position, width, depth, height, rotation }) => (
+        <LogoBox
+          name={name}
+          url={`/images/${name}.png`}
+          position={position}
+          rotation={rotation}
+          width={width}
+          depth={depth}
+          height={height}
+        />
+      ))}
       <Spot />
       <PointerCircle />
     </Canvas>

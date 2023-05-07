@@ -1,6 +1,6 @@
 import { useLoader } from "@react-three/fiber";
 import { RepeatWrapping, TextureLoader, Vector3 } from "three";
-import { WALL_SIDE_TYPE } from "../constants";
+import { WALL_SIDE_TYPE } from "../types";
 
 export const Wall = ({
   side,

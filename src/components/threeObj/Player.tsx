@@ -12,11 +12,9 @@ let angle = 0;
 
 export const Player = () => {
   const meshRef = useRef<THREE.Mesh>(null);
-  const { scene, camera, raycaster, gl } = useThree();
+  const { scene, camera, raycaster, gl, frameloop, setFrameloop } = useThree();
 
   const checkIntersects = () => {
-    console.log("checkIntersects");
-
     const floorMesh = scene.getObjectByName("floor") as THREE.Mesh;
 
     const intersects = raycaster.intersectObject(floorMesh);
@@ -35,7 +33,6 @@ export const Player = () => {
 
         pointerMesh.position.x = destinationPoint.x;
         pointerMesh.position.z = destinationPoint.z;
-        console.log(player.position);
       }
       break;
     }
@@ -44,7 +41,6 @@ export const Player = () => {
   const raycasting = () => {
     raycaster.setFromCamera(mouse, camera);
     checkIntersects();
-    console.log("raycasting");
   };
 
   const calculateMousePosition = (e: PointerEvent) => {
@@ -102,6 +98,13 @@ export const Player = () => {
 
       camera.position.x = 1 + player.position.x;
       camera.position.z = 5 + player.position.z;
+      if (
+        Math.abs(destinationPoint.x - player.position.x) < 0.03 &&
+        Math.abs(destinationPoint.z - player.position.z) < 0.03
+      ) {
+        player.userData.moving = false;
+        console.log("멈춤");
+      }
     }
   });
   return (
