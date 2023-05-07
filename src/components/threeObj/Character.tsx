@@ -19,6 +19,9 @@ export const Character = () => {
 
     const intersects = three.raycaster.intersectObject(floorMesh);
     const player = meshRef.current;
+    const pointerMesh = three.scene.getObjectByName(
+      "pointerMesh"
+    ) as THREE.Mesh;
 
     if (!player) return;
     for (const item of intersects) {
@@ -32,8 +35,8 @@ export const Character = () => {
 
         player.userData.moving = true;
 
-        // pointerMesh.position.x = destinationPoint.x;
-        // pointerMesh.position.z = destinationPoint.z;
+        pointerMesh.position.x = destinationPoint.x;
+        pointerMesh.position.z = destinationPoint.z;
       }
       break;
     }
