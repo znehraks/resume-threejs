@@ -10,7 +10,7 @@ export const MainCanvas = () => {
       orthographic
       camera={{
         zoom: 50,
-        position: [2, 2, 2],
+        position: [1, 5, 5],
         left: -1 * aspectRatio,
         right: 1 * aspectRatio,
         top: 1,
