@@ -20,18 +20,14 @@ export const Books = () => {
     });
     bookMesh.castShadow = true;
     bookMesh.receiveShadow = true;
-    bookMesh.position.set(-10, 0, -12);
+    bookMesh.position.set(-11, 0, -12);
     bookMesh.scale.set(3, 3, 3);
     bookMesh.rotation.set(0, -Math.PI / 4, 0);
 
     setIsReady(true);
   }, [bookMesh]);
   if (isReady) {
-    return (
-      <group castShadow receiveShadow>
-        <primitive name="book" object={bookMesh} />
-      </group>
-    );
+    return <primitive name="book" object={bookMesh} />;
   }
   return null;
 };

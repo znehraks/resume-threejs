@@ -20,7 +20,7 @@ export const Light = () => {
   }, []);
   return (
     <>
-      <ambientLight castShadow intensity={0.3} />
+      <ambientLight intensity={0.3} />
       <directionalLight
         ref={lightRef}
         castShadow

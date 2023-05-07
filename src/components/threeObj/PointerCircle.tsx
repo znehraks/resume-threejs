@@ -10,7 +10,7 @@ export const PointerCircle = () => {
       rotation={[-Math.PI / 2, 0, 0]}
     >
       <circleGeometry args={[1, 32]} />
-      <meshStandardMaterial color={"0xff0000"} />
+      <meshStandardMaterial color={"green"} />
     </mesh>
   );
 };

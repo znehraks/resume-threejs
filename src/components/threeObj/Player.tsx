@@ -85,6 +85,9 @@ export const Player = () => {
       const minimapPosition = toMinimapPosition(player.position);
       currentPositionCircle.style.transform = `translate(${minimapPosition.x}px, ${minimapPosition.y}px)`;
     }
+    const infoDOM = document.querySelector(".info-wrapper") as HTMLDivElement;
+
+    if (!infoDOM) return;
     if (isPressed) {
       raycasting();
     }
@@ -98,6 +101,18 @@ export const Player = () => {
 
       camera.position.x = 1 + player.position.x;
       camera.position.z = 5 + player.position.z;
+
+      console.log("player.position.x", player.position.x);
+      console.log("player.position.z", player.position.z);
+      if (
+        Math.abs(player.position.x + 18) < 2 &&
+        Math.abs(player.position.z + 18) < 2
+      ) {
+        console.log("hihihih");
+        infoDOM.style.display = "block";
+      } else {
+        infoDOM.style.display = "none";
+      }
       if (
         Math.abs(destinationPoint.x - player.position.x) < 0.03 &&
         Math.abs(destinationPoint.z - player.position.z) < 0.03
@@ -116,7 +131,7 @@ export const Player = () => {
       position={[0, meshHeight / 2 + 1, 0]}
     >
       <boxGeometry args={[1, meshHeight, 1]} />
-      <meshStandardMaterial color={0xff0000} />
+      <meshStandardMaterial color={"red"} />
     </mesh>
   );
 };

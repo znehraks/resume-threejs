@@ -13,6 +13,7 @@ import { Books } from "./threeObj/Books";
 import { Rug } from "./threeObj/Rug";
 import { LogoBox } from "./threeObj/LogoBox";
 import { logos } from "./data";
+import { Laptop } from "./threeObj/Laptop";
 
 export const MainCanvas = () => {
   const aspectRatio = window.innerWidth / window.innerHeight;
@@ -39,14 +40,22 @@ export const MainCanvas = () => {
       <Light />
       <Floor />
       {["top", "right", "bottom", "left"].map((side) => (
-        <Wall side={side as WALL_SIDE_TYPE} width={50} depth={1} height={6} />
+        <Wall
+          key={side}
+          side={side as WALL_SIDE_TYPE}
+          width={50}
+          depth={1}
+          height={6}
+        />
       ))}
       <Player />
       <House />
       <Books />
+      <Laptop />
       <Rug />
       {logos.map(({ name, position, width, depth, height, rotation }) => (
         <LogoBox
+          key={name}
           name={name}
           url={`/images/${name}.png`}
           position={position}
