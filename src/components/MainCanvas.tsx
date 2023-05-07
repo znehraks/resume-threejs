@@ -1,5 +1,5 @@
 import { Canvas } from "@react-three/fiber";
-import { Character } from "./threeObj/Character";
+import { Player } from "./threeObj/Player";
 import { OrbitControls } from "@react-three/drei";
 import { Floor } from "./threeObj/Floor";
 import { PointerCircle } from "./threeObj/PointerCircle";
@@ -21,7 +21,7 @@ export const MainCanvas = () => {
       }}
     >
       <Floor />
-      <Character />
+      <Player />
       <PointerCircle />
     </Canvas>
   );

@@ -1,6 +1,7 @@
 import { useFrame, useThree } from "@react-three/fiber";
 import { useRef, useEffect } from "react";
 import * as THREE from "three";
+import { toMinimapPosition } from "../../utils";
 const meshHeight = 1;
 
 let isPressed = false;
@@ -8,7 +9,7 @@ const mouse = new THREE.Vector2();
 const destinationPoint = new THREE.Vector3();
 let angle = 0;
 
-export const Character = () => {
+export const Player = () => {
   const meshRef = useRef<THREE.Mesh>(null);
   const three = useThree();
 
@@ -31,12 +32,11 @@ export const Character = () => {
         destinationPoint.z = item.point.z;
         player.lookAt(destinationPoint);
 
-        // console.log(item.point)
-
         player.userData.moving = true;
 
         pointerMesh.position.x = destinationPoint.x;
         pointerMesh.position.z = destinationPoint.z;
+        console.log(player.position);
       }
       break;
     }
@@ -75,12 +75,17 @@ export const Character = () => {
       three.gl.domElement.removeEventListener("pointerup", handlePointerUp);
     };
   }, []);
+
   useFrame(() => {
     const player = meshRef.current;
     if (!player) return;
-    // TODO 이곳에서 이동로직 처리
-    // console.log("isPressed", isPressed);
-    // console.log("mouse", mouse);
+    const currentPositionCircle = document.getElementById(
+      "current-position-circle"
+    );
+    if (currentPositionCircle) {
+      const minimapPosition = toMinimapPosition(player.position);
+      currentPositionCircle.style.transform = `translate(${minimapPosition.x}px, ${minimapPosition.y}px)`;
+    }
     if (isPressed) {
       raycasting();
     }
@@ -97,7 +102,7 @@ export const Character = () => {
     }
   });
   return (
-    <mesh ref={meshRef} name="character" position={[0, meshHeight / 2, 0]}>
+    <mesh ref={meshRef} name="player" position={[0, meshHeight / 2, 0]}>
       <boxGeometry args={[1, meshHeight, 1]} />
       <meshBasicMaterial color={0xff0000} />
     </mesh>
