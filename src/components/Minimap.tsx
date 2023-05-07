@@ -3,8 +3,8 @@ import { useEffect } from "react";
 import { useThree } from "@react-three/fiber";
 
 const MinimapWrapper = styled.div`
-  width: 200px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
   position: absolute;
   top: 0;
   left: 0;

@@ -6,11 +6,11 @@ export const Floor = () => {
   const floorTexture = useLoader(TextureLoader, "/images/floor.jpg");
   floorTexture.wrapS = THREE.RepeatWrapping;
   floorTexture.wrapT = THREE.RepeatWrapping;
-  floorTexture.repeat.x = 8;
-  floorTexture.repeat.y = 8;
+  floorTexture.repeat.x = 4;
+  floorTexture.repeat.y = 4;
   return (
     <mesh castShadow receiveShadow name="floor" rotation={[-Math.PI / 2, 0, 0]}>
-      <planeGeometry args={[100, 100]} />
+      <planeGeometry args={[50, 50]} />
       <meshStandardMaterial map={floorTexture} />
     </mesh>
   );

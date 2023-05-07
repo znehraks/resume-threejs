@@ -7,6 +7,8 @@ import { PointerCircle } from "./threeObj/PointerCircle";
 import { House } from "./threeObj/House";
 import { Spot } from "./threeObj/Spot";
 import { Light } from "./threeObj/Lights";
+import { Wall } from "./threeObj/Wall";
+import { WALL_SIDE_TYPE } from "./constants";
 
 export const MainCanvas = () => {
   const aspectRatio = window.innerWidth / window.innerHeight;
@@ -31,6 +33,9 @@ export const MainCanvas = () => {
     >
       <Light />
       <Floor />
+      {["top", "right", "bottom", "left"].map((side) => (
+        <Wall side={side as WALL_SIDE_TYPE} width={50} depth={1} height={6} />
+      ))}
       <Player />
       <House />
       <Spot />
