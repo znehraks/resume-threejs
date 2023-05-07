@@ -1,13 +1,22 @@
+import * as THREE from "three";
 import { Canvas } from "@react-three/fiber";
 import { Player } from "./threeObj/Player";
 import { OrbitControls } from "@react-three/drei";
 import { Floor } from "./threeObj/Floor";
 import { PointerCircle } from "./threeObj/PointerCircle";
+import { House } from "./threeObj/House";
+import { Spot } from "./threeObj/Spot";
+import { Light } from "./threeObj/Lights";
 
 export const MainCanvas = () => {
   const aspectRatio = window.innerWidth / window.innerHeight;
   return (
     <Canvas
+      shadows={{
+        enabled: true,
+        autoUpdate: true,
+        type: THREE.PCFSoftShadowMap,
+      }}
       orthographic
       camera={{
         zoom: 50,
@@ -20,8 +29,11 @@ export const MainCanvas = () => {
         far: 1000,
       }}
     >
+      <Light />
       <Floor />
       <Player />
+      <House />
+      <Spot />
       <PointerCircle />
     </Canvas>
   );

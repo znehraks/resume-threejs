@@ -9,9 +9,9 @@ export const Floor = () => {
   floorTexture.repeat.x = 8;
   floorTexture.repeat.y = 8;
   return (
-    <mesh name="floor" rotation={[-Math.PI / 2, 0, 0]}>
+    <mesh castShadow receiveShadow name="floor" rotation={[-Math.PI / 2, 0, 0]}>
       <planeGeometry args={[100, 100]} />
-      <meshBasicMaterial map={floorTexture} />
+      <meshStandardMaterial map={floorTexture} />
     </mesh>
   );
 };
