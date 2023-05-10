@@ -3,6 +3,8 @@ import { useRef, useEffect } from "react";
 import * as THREE from "three";
 import { toMinimapPosition } from "../../utils";
 import { gsap } from "gsap";
+import { useRecoilState } from "recoil";
+import { dialogStartTriggerAtom } from "../../atoms";
 const meshHeight = 1;
 
 let isPressed = false;
@@ -11,6 +13,9 @@ const destinationPoint = new THREE.Vector3();
 let angle = 0;
 
 export const Player = () => {
+  const [dialogStartTrigger, setDialogStartTrigger] = useRecoilState(
+    dialogStartTriggerAtom
+  );
   const meshRef = useRef<THREE.Mesh>(null);
   const { scene, camera, raycaster, gl, frameloop, setFrameloop } = useThree();
 
@@ -87,7 +92,10 @@ export const Player = () => {
     }
     const infoDOM = document.querySelector(".info-wrapper") as HTMLDivElement;
 
-    if (!infoDOM) return;
+    const dialogDOM = document.querySelector(
+      ".dialog-wrapper"
+    ) as HTMLDivElement;
+
     if (isPressed) {
       raycasting();
     }
@@ -102,19 +110,23 @@ export const Player = () => {
       camera.position.x = 1 + player.position.x;
       camera.position.z = 5 + player.position.z;
 
-      if (
-        Math.abs(player.position.x + 18) < 2 &&
-        Math.abs(player.position.z + 18) < 2
-      ) {
-        infoDOM.style.display = "block";
+      console.log("player.position.x", player.position.x);
+      console.log("player.position.z", player.position.z);
+      if (player.position.x < -4 && player.position.z < -4) {
+        // infoDOM.style.display = "block";
+        setDialogStartTrigger(1);
+        dialogDOM.style.display = "block";
       } else {
-        infoDOM.style.display = "none";
+        // infoDOM.style.display = "none";
+        setDialogStartTrigger(0);
+        dialogDOM.style.display = "none";
       }
       if (
         Math.abs(destinationPoint.x - player.position.x) < 0.03 &&
         Math.abs(destinationPoint.z - player.position.z) < 0.03
       ) {
         player.userData.moving = false;
+        console.log("멈춤");
       }
     }
   });
