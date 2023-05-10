@@ -81,8 +81,6 @@ export const Player = () => {
     if (!player) return;
     const house = scene.getObjectByName("house");
     if (!house) return;
-    const spotMesh = scene.getObjectByName("spot") as THREE.Mesh;
-    if (!spotMesh) return;
     const currentPositionCircle = document.getElementById(
       "current-position-circle"
     );
@@ -99,6 +97,7 @@ export const Player = () => {
     if (isPressed) {
       raycasting();
     }
+    player.rotation.y += 0.01;
     if (player.userData.moving) {
       angle = Math.atan2(
         destinationPoint.z - player.position.z,
@@ -110,11 +109,13 @@ export const Player = () => {
       camera.position.x = 1 + player.position.x;
       camera.position.z = 5 + player.position.z;
 
-      console.log("player.position.x", player.position.x);
-      console.log("player.position.z", player.position.z);
       if (player.position.x < -4 && player.position.z < -4) {
         // infoDOM.style.display = "block";
         setDialogStartTrigger(1);
+        dialogDOM.style.display = "block";
+      } else if (player.position.x > 4 && player.position.z < -4) {
+        // infoDOM.style.display = "block";
+        setDialogStartTrigger(2);
         dialogDOM.style.display = "block";
       } else {
         // infoDOM.style.display = "none";
@@ -126,7 +127,6 @@ export const Player = () => {
         Math.abs(destinationPoint.z - player.position.z) < 0.03
       ) {
         player.userData.moving = false;
-        console.log("멈춤");
       }
     }
   });

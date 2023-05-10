@@ -1,3 +1,4 @@
+import React from "react";
 import * as THREE from "three";
 import { Canvas } from "@react-three/fiber";
 import { Player } from "./threeObj/Player";
@@ -5,7 +6,6 @@ import { OrbitControls } from "@react-three/drei";
 import { Floor } from "./threeObj/Floor";
 import { PointerCircle } from "./threeObj/PointerCircle";
 import { House } from "./threeObj/House";
-import { Spot } from "./threeObj/Spot";
 import { Light } from "./threeObj/Lights";
 import { Wall } from "./threeObj/Wall";
 import { WALL_SIDE_TYPE } from "./types";
@@ -14,6 +14,8 @@ import { Rug } from "./threeObj/Rug";
 import { LogoBox } from "./threeObj/LogoBox";
 import { logos } from "./data";
 import { Laptop } from "./threeObj/Laptop";
+import { Door } from "./threeObj/Door";
+import { Lavacon } from "./threeObj/Lavacon";
 
 export const MainCanvas = () => {
   const aspectRatio = window.innerWidth / window.innerHeight;
@@ -65,8 +67,9 @@ export const MainCanvas = () => {
           height={height}
         />
       ))}
-      <Spot />
       <PointerCircle />
+      <Door />
+      <Lavacon />
     </Canvas>
   );
 };

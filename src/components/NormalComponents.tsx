@@ -1,4 +1,4 @@
-import { Dialog } from "./Dialog";
+import { BottomDialog } from "./BottomDialog";
 import { Info } from "./Info";
 import { Minimap } from "./Minimap";
 
@@ -7,7 +7,7 @@ export const NormalComponents = () => {
     <>
       <Minimap />
       {/* <Info /> */}
-      <Dialog />
+      <BottomDialog />
     </>
   );
 };
