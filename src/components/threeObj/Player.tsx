@@ -102,13 +102,10 @@ export const Player = () => {
       camera.position.x = 1 + player.position.x;
       camera.position.z = 5 + player.position.z;
 
-      console.log("player.position.x", player.position.x);
-      console.log("player.position.z", player.position.z);
       if (
         Math.abs(player.position.x + 18) < 2 &&
         Math.abs(player.position.z + 18) < 2
       ) {
-        console.log("hihihih");
         infoDOM.style.display = "block";
       } else {
         infoDOM.style.display = "none";
@@ -118,7 +115,6 @@ export const Player = () => {
         Math.abs(destinationPoint.z - player.position.z) < 0.03
       ) {
         player.userData.moving = false;
-        console.log("멈춤");
       }
     }
   });

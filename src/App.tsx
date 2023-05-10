@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { MainCanvas } from "./components/MainCanvas";
-import { Minimap } from "./components/Minimap";
-import { Info } from "./components/Info";
+import { CanvasComponents } from "./components/CanvasComponents";
+import { NormalComponents } from "./components/NormalComponents";
+import { RecoilRoot } from "recoil";
 
 const Wrapper = styled.div`
   width: 100vw;
@@ -11,11 +11,12 @@ const Wrapper = styled.div`
 `;
 function App() {
   return (
-    <Wrapper>
-      <MainCanvas />
-      <Minimap />
-      <Info />
-    </Wrapper>
+    <RecoilRoot>
+      <Wrapper>
+        <CanvasComponents />
+        <NormalComponents />
+      </Wrapper>
+    </RecoilRoot>
   );
 }
 

@@ -1,0 +1,4 @@
+export enum CANVAS_MODE {
+  ORTHOGONAL,
+  PERSPECTIVE,
+}
