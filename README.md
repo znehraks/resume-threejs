@@ -1,6 +1,7 @@
 ### Jay의 발자취를 기록하는 프로젝트 
 
-<a href="[https://jay-playground.netlify.app/](https://velog.io/@designc/%EC%95%97-threejs%EC%99%80-React%EB%A1%9C-%EC%B7%A8%EC%97%85%EC%97%90-%EB%8F%84%EC%9B%80%EB%90%98%EB%8A%94-%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4%EB%A5%BC-%EB%A7%8C%EB%93%A4%EC%96%B4%EB%B3%B4%EC%9E%90.-%EC%8B%A4%EC%A0%84%ED%8E%B8)">관련 velog 페이지</a> 
+<a href="https://velog.io/@designc/series/%EC%95%97-Threejs-%EB%A5%BC-%EA%B3%B5%EB%B6%80%ED%95%B4%EB%B3%B4%EC%9E%90-%EC%8B%A4%EC%A0%84%ED%8E%B8">관련 velog 페이지</a>
+
 <a href="https://jay-playground.netlify.app/">포트폴리오 페이지</a> 
 
 #### 일분코딩 threejs 강좌를 참고하여 나만의 포트폴리오 제공 사이트를 만든다.
