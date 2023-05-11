@@ -4,7 +4,7 @@ import { useRecoilState } from "recoil";
 import { canvasModeAtom, dialogStartTriggerAtom } from "../atoms";
 import { CANVAS_MODE } from "./enums";
 
-const dialogStringTopLeft = `이곳은 Jay가 능숙하게 다루는 툴들을 모아둔 곳이에요.     천천히 둘러보세요.!. 혹시나 추가했으면 하는 궁금한 점이 있다면, 제 Velog에 댓글로 남겨주시면 감사하겠습니다.`;
+const dialogStringTopLeft = `이곳은 Jay가 능숙하게 다루는 툴들을 모아둔 곳이에요. 천천히 둘러보세요.!. 혹시나 추가했으면 하는 궁금한 점이 있다면, 제 Velog에 댓글로 남겨주시면 감사하겠습니다.`;
 const dialogStringTopRight = `이곳은 간단한 미니게임방으로 연결되는 통로입니다. 하지만 아직 준비중입니다.!`;
 const DialogWrapper = styled.div`
   width: 1000px;
@@ -16,10 +16,13 @@ const DialogWrapper = styled.div`
   display: none;
   border-radius: 10px;
   padding: 10px 15px;
+
+  user-select: none;
 `;
 const DialogSpan = styled.span`
   font-size: 32px;
   color: #000;
+  user-select: none;
 `;
 // TODO 특정 위치에서 마우스 클릭 등의 이벤트 발생 시, 실제 정보를 보여줄 컴포넌트
 export const BottomDialog = () => {

@@ -1,3 +1,5 @@
+import { Vector3 } from "three";
+
 export interface ILogo {
   name: string;
   position: [number, number, number];
@@ -114,3 +116,42 @@ export const logos: ILogo[] = [
     rotation: [0, Math.PI / 17, 0],
   },
 ];
+
+export const lavaconPositions = new Array(5)
+  .fill(null)
+  .map(
+    (_, i) =>
+      new Vector3(
+        23 + 10 * Math.cos((Math.PI / 2 / 4) * (i + 4)),
+        0,
+        -23 + 10 * Math.sin((Math.PI / 2 / 4) * (i + 4))
+      )
+  );
+
+// [
+//   new Vector3(
+//     23 + 10 * Math.cos((Math.PI / 2 / 4) * 4),
+//     0,
+//     -23 + 10 * Math.sin((Math.PI / 2 / 4) * 4)
+//   ),
+//   new Vector3(
+//     23 + 10 * Math.cos((Math.PI / 2 / 4) * 5),
+//     0,
+//     -23 + 10 * Math.sin((Math.PI / 2 / 4) * 5)
+//   ),
+//   new Vector3(
+//     23 + 10 * Math.cos((Math.PI / 2 / 4) * 6),
+//     0,
+//     -23 + 10 * Math.sin((Math.PI / 2 / 4) * 6)
+//   ),
+//   new Vector3(
+//     23 + 10 * Math.cos((Math.PI / 2 / 4) * 7),
+//     0,
+//     -23 + 10 * Math.sin((Math.PI / 2 / 4) * 7)
+//   ),
+//   new Vector3(
+//     23 + 10 * Math.cos((Math.PI / 2 / 4) * 8),
+//     0,
+//     -23 + 10 * Math.sin((Math.PI / 2 / 4) * 8)
+//   ),
+// ];

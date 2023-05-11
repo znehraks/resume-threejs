@@ -103,8 +103,8 @@ export const Player = () => {
         destinationPoint.z - player.position.z,
         destinationPoint.x - player.position.x
       );
-      player.position.x += Math.cos(angle) * 0.05;
-      player.position.z += Math.sin(angle) * 0.05;
+      player.position.x += Math.cos(angle) * 0.06;
+      player.position.z += Math.sin(angle) * 0.06;
 
       camera.position.x = 1 + player.position.x;
       camera.position.z = 5 + player.position.z;
@@ -113,7 +113,7 @@ export const Player = () => {
         // infoDOM.style.display = "block";
         setDialogStartTrigger(1);
         dialogDOM.style.display = "block";
-      } else if (player.position.x > 4 && player.position.z < -4) {
+      } else if (player.position.x > 10 && player.position.z < -10) {
         // infoDOM.style.display = "block";
         setDialogStartTrigger(2);
         dialogDOM.style.display = "block";
