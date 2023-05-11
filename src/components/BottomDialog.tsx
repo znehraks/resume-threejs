@@ -16,13 +16,21 @@ const DialogWrapper = styled.div`
   display: none;
   border-radius: 10px;
   padding: 10px 15px;
-
   user-select: none;
+  @media (max-width: 500px) {
+    width: 400px;
+    height: 60px;
+    border-radius: 4px;
+    padding: 2px 3px;
+  }
 `;
 const DialogSpan = styled.span`
   font-size: 32px;
   color: #000;
   user-select: none;
+  @media (max-width: 500px) {
+    font-size: 14px;
+  }
 `;
 // TODO 특정 위치에서 마우스 클릭 등의 이벤트 발생 시, 실제 정보를 보여줄 컴포넌트
 export const BottomDialog = () => {
@@ -38,8 +46,8 @@ export const BottomDialog = () => {
     const handleResize = () => {
       if (dialogWrapperDOM) {
         dialogWrapperDOM.style.transform = `translate(${
-          window.innerWidth / 2 - 500
-        }px,${window.innerHeight - 300}px)`;
+          window.innerWidth / 2 - (window.innerWidth > 500 ? 500 : 200)
+        }px,${window.innerHeight - (window.innerWidth > 500 ? 300 : 120)}px)`;
       }
     };
     handleResize();
