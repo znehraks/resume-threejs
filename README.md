@@ -1,4 +1,6 @@
-### Jay의 발자취를 기록하는 프로젝트
+### Jay의 발자취를 기록하는 프로젝트 
+
+<a href="https://jay-playground.netlify.app/">포트폴리오 페이지</a> 
 
 #### 일분코딩 threejs 강좌를 참고하여 나만의 포트폴리오 제공 사이트를 만든다.
 
