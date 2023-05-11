@@ -23,28 +23,39 @@ const CurrentPositionCircle = styled.div`
 const UtilityPositionSquare = styled.div`
   width: 10px;
   height: 10px;
-  top: 10px;
-  left: 10px;
-  &.door {
+  top: 0;
+  left: 0;
+  &.arcade {
     background-color: blue;
   }
 `;
 
 const ZoneSquare = styled.div`
-  width: 50px;
-  height: 50px;
   position: absolute;
-  top: 0;
-  left: 0;
-  background-color: #f0ff0033;
+
+  &.logo {
+    width: 50px;
+    height: 50px;
+    top: 0;
+    left: 0;
+    background-color: #f0ff0055;
+  }
+  &.game {
+    width: 25px;
+    height: 25px;
+    top: 0px;
+    left: 75px;
+    background-color: #00ff0055;
+  }
 `;
 
 export const Minimap = () => {
   return (
     <MinimapWrapper>
       <CurrentPositionCircle id="current-position-circle" />
-      <ZoneSquare />
-      <UtilityPositionSquare className="door" />
+      <ZoneSquare className="logo" />
+      <ZoneSquare className="game" />
+      <UtilityPositionSquare className="arcade" />
     </MinimapWrapper>
   );
 };

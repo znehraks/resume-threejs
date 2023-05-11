@@ -6,5 +6,6 @@ export const Arcade = () => {
   modeling.scale.set(0.05, 0.05, 0.05);
   modeling.position.set(22, 0, -22);
   modeling.rotation.set(0, -Math.PI / 4, 0);
+  modeling.name = "arcade";
   return <primitive object={modeling} />;
 };

@@ -16,6 +16,7 @@ import { Laptop } from "./threeObj/Laptop";
 import { Lavacon } from "./threeObj/Lavacons";
 import { Arcade } from "./threeObj/Arcade";
 import { Basketball } from "./threeObj/Basketball";
+import { MinimapPositionSetter } from "./MinimapPositionSetter";
 
 export const MainCanvas = () => {
   const aspectRatio = window.innerWidth / window.innerHeight;
@@ -71,6 +72,7 @@ export const MainCanvas = () => {
       <Basketball />
       <Arcade />
       <Lavacon />
+      <MinimapPositionSetter />
     </Canvas>
   );
 };
