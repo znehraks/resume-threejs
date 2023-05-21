@@ -1,8 +1,8 @@
 ### Jay의 발자취를 기록하는 프로젝트 
 
-<a href="https://jay-playground.netlify.app/">포트폴리오 페이지</a> 
+<a href="https://velog.io/@designc/series/%EC%95%97-Threejs-%EB%A5%BC-%EA%B3%B5%EB%B6%80%ED%95%B4%EB%B3%B4%EC%9E%90-%EC%8B%A4%EC%A0%84%ED%8E%B8">관련 velog 페이지</a>
 
-#### 일분코딩 threejs 강좌를 참고하여 나만의 포트폴리오 제공 사이트를 만든다.
+<a href="https://jay-playground.netlify.app/">포트폴리오 페이지</a> 
 
 #### Threejs, Reactjs를 이용하여, 인터렉티브하게 이력정보를 제공하는 사이트를 만든다.
 
