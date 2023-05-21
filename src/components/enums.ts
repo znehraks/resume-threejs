@@ -2,3 +2,9 @@ export enum CANVAS_MODE {
   ORTHOGONAL,
   PERSPECTIVE,
 }
+
+export enum DIALOG_MODE {
+  NONE,
+  LANGUAGE,
+  MINI_GAME,
+}

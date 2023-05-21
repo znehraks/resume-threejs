@@ -18,7 +18,7 @@ import { Arcade } from "./threeObj/Arcade";
 import { Basketball } from "./threeObj/Basketball";
 import { MinimapPositionSetter } from "./MinimapPositionSetter";
 
-export const MainCanvas = () => {
+export const OrthogonalCanvas = () => {
   const aspectRatio = window.innerWidth / window.innerHeight;
   return (
     <Canvas

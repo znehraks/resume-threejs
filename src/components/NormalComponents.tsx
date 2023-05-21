@@ -7,7 +7,7 @@ export const NormalComponents = () => {
   return (
     <>
       <Minimap />
-      {/* <Info /> */}
+      <Info />
       <BottomDialog />
     </>
   );

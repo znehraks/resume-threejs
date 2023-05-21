@@ -16,3 +16,16 @@ export const getYOffset = (mesh: THREE.Mesh) => {
   }
   return 0;
 };
+
+export const getThreeCoord = ({
+  clientX,
+  clientY,
+}: {
+  clientX: number;
+  clientY: number;
+}) => {
+  return {
+    x: (clientX / window.innerWidth) * 2 - 1,
+    y: -((clientY / window.innerHeight) * 2 - 1),
+  };
+};

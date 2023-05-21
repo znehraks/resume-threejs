@@ -1,10 +1,11 @@
 import { useFrame, useThree } from "@react-three/fiber";
 import { useRef, useEffect } from "react";
 import * as THREE from "three";
-import { toMinimapPosition } from "../../utils";
+import { getThreeCoord, toMinimapPosition } from "../../utils";
 import { gsap } from "gsap";
 import { useRecoilState } from "recoil";
 import { dialogStartTriggerAtom } from "../../atoms";
+import { DIALOG_MODE } from "../enums";
 const meshHeight = 1;
 
 let isPressed = false;
@@ -49,8 +50,10 @@ export const Player = () => {
   };
 
   const calculateMousePosition = (e: PointerEvent) => {
-    mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
-    mouse.y = -((e.clientY / window.innerHeight) * 2 - 1);
+    const { clientX, clientY } = e;
+    const { x, y } = getThreeCoord({ clientX, clientY });
+    mouse.x = x;
+    mouse.y = y;
   };
 
   useEffect(() => {
@@ -88,7 +91,6 @@ export const Player = () => {
       const minimapPosition = toMinimapPosition(player.position);
       currentPositionCircle.style.transform = `translate(${minimapPosition.x}px, ${minimapPosition.y}px)`;
     }
-    const infoDOM = document.querySelector(".info-wrapper") as HTMLDivElement;
 
     const dialogDOM = document.querySelector(
       ".dialog-wrapper"
@@ -110,16 +112,13 @@ export const Player = () => {
       camera.position.z = 5 + player.position.z;
 
       if (player.position.x < -4 && player.position.z < -4) {
-        // infoDOM.style.display = "block";
-        setDialogStartTrigger(1);
+        setDialogStartTrigger(DIALOG_MODE.LANGUAGE);
         dialogDOM.style.display = "block";
       } else if (player.position.x > 10 && player.position.z < -10) {
-        // infoDOM.style.display = "block";
-        setDialogStartTrigger(2);
+        setDialogStartTrigger(DIALOG_MODE.MINI_GAME);
         dialogDOM.style.display = "block";
       } else {
-        // infoDOM.style.display = "none";
-        setDialogStartTrigger(0);
+        setDialogStartTrigger(DIALOG_MODE.NONE);
         dialogDOM.style.display = "none";
       }
       if (
