@@ -1,7 +1,7 @@
-import { useFrame, useLoader } from "@react-three/fiber";
-import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
+import { useFrame, useLoader } from '@react-three/fiber';
+import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader';
 export const Basketball = () => {
-  const modeling = useLoader(FBXLoader, "/basketball.fbx").clone();
+  const modeling = useLoader(FBXLoader, '/basketball.fbx').clone();
 
   modeling.scale.set(0.1, 0.1, 0.1);
   modeling.position.set(19, 0.5, -19);
@@ -9,6 +9,7 @@ export const Basketball = () => {
     child.castShadow = true;
     child.receiveShadow = true;
   });
+
   useFrame(() => {
     modeling.rotation.y += 0.03;
   });
