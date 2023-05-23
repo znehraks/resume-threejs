@@ -19,7 +19,8 @@
     "react-dom": "^18.2.0",
     "recoil": "^0.7.7",
     "styled-components": "^5.3.10",
-    "three": "^0.152.2"
+    "three": "^0.152.2",
+    "three-stdlib": "^2.21.12"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",

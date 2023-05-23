@@ -1,12 +1,13 @@
-import * as THREE from 'three';
-import { Canvas } from '@react-three/fiber';
-import { Floor } from './threeObj/Floor';
-import { Light } from './threeObj/Lights';
-import { OrbitControls } from '@react-three/drei';
-import { Wall } from './threeObj/Wall';
-import { WALL_SIDE_TYPE } from './types';
-import { TestMesh } from './threeObj/gameObj/TestMesh';
-import { Physics } from '@react-three/cannon';
+import * as THREE from "three";
+import { Canvas } from "@react-three/fiber";
+import { Floor } from "./threeObj/Floor";
+import { Light } from "./threeObj/Lights";
+import { OrbitControls } from "@react-three/drei";
+import { Wall } from "./threeObj/Wall";
+import { WALL_SIDE_TYPE } from "./types";
+import { TestMesh } from "./threeObj/gameObj/TestMesh";
+import { Physics } from "@react-three/cannon";
+import { CustomOrbitControls } from "./CustomOrbitControls";
 
 // TODO 게임방 입장 시, 튜토리얼 팝업 추가하기 방향키 구역별 게임 설명 등.
 export const PerspectiveCanvas = () => {
@@ -30,10 +31,10 @@ export const PerspectiveCanvas = () => {
     >
       <Physics>
         // TODO 바닥, 벽 등의 texture를 게임방에 맞는걸로 구해서 교체
-        <OrbitControls target={[1, 3, 0]} />
+        <CustomOrbitControls />
         <Light />
         <Floor />
-        {['top', 'right', 'bottom', 'left'].map((side) => (
+        {["top", "right", "bottom", "left"].map((side) => (
           <Wall
             key={side}
             side={side as WALL_SIDE_TYPE}
