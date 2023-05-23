@@ -6,6 +6,7 @@ import { OrbitControls } from "@react-three/drei";
 import { Wall } from "./threeObj/Wall";
 import { WALL_SIDE_TYPE } from "./types";
 
+// TODO 게임방 입장 시, 튜토리얼 팝업 추가하기 방향키 구역별 게임 설명 등.
 export const PerspectiveCanvas = () => {
   const aspectRatio = window.innerWidth / window.innerHeight;
   return (
