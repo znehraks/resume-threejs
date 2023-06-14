@@ -14,11 +14,9 @@ const destinationPoint = new THREE.Vector3();
 let angle = 0;
 
 export const Player = () => {
-  const [dialogStartTrigger, setDialogStartTrigger] = useRecoilState(
-    dialogStartTriggerAtom
-  );
+  const [, setDialogStartTrigger] = useRecoilState(dialogStartTriggerAtom);
   const meshRef = useRef<THREE.Mesh>(null);
-  const { scene, camera, raycaster, gl, frameloop, setFrameloop } = useThree();
+  const { scene, camera, raycaster, gl } = useThree();
 
   const checkIntersects = () => {
     const floorMesh = scene.getObjectByName("floor") as THREE.Mesh;
@@ -105,8 +103,8 @@ export const Player = () => {
         destinationPoint.z - player.position.z,
         destinationPoint.x - player.position.x
       );
-      player.position.x += Math.cos(angle) * 0.06;
-      player.position.z += Math.sin(angle) * 0.06;
+      player.position.x += Math.cos(angle) * 0.15;
+      player.position.z += Math.sin(angle) * 0.15;
 
       camera.position.x = 1 + player.position.x;
       camera.position.z = 5 + player.position.z;

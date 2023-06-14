@@ -14,6 +14,9 @@ export const PerspectiveCanvas = () => {
   const aspectRatio = window.innerWidth / window.innerHeight;
   return (
     <Canvas
+      onCreated={({ camera }) => {
+        camera.lookAt(1, 3, 0);
+      }}
       gl={{ antialias: true }}
       shadows={{
         enabled: true,
