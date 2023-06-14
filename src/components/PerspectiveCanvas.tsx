@@ -8,6 +8,7 @@ import { WALL_SIDE_TYPE } from "./types";
 import { TestMesh } from "./threeObj/gameObj/TestMesh";
 import { Physics } from "@react-three/cannon";
 import { CustomOrbitControls } from "./CustomOrbitControls";
+import { GameCameraControl } from "./threeObj/gameObj/GameCameraControl";
 
 // TODO 게임방 입장 시, 튜토리얼 팝업 추가하기 방향키 구역별 게임 설명 등.
 export const PerspectiveCanvas = () => {
@@ -46,6 +47,7 @@ export const PerspectiveCanvas = () => {
             height={6}
           />
         ))}
+        {/* <GameCameraControl /> */}
         <TestMesh />
       </Physics>
     </Canvas>
