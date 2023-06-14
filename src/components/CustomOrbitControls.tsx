@@ -9,6 +9,24 @@ let isLocked = false;
 export const CustomOrbitControls = () => {
   const { gl, camera, controls } = useThree();
   const controlsRef = useRef<PLCType>(null);
+
+  const preventMoveOutside = (position: THREE.Vector3) => {
+    if (position.y !== 3) {
+      position.y = 3;
+    }
+    if (position.x >= 24) {
+      position.x = 24;
+    }
+    if (position.x <= -24) {
+      position.x = -24;
+    }
+    if (position.z >= 24) {
+      position.z = 24;
+    }
+    if (position.z <= -24) {
+      position.z = -24;
+    }
+  };
   useEffect(() => {
     const handleControlsLock = () => {
       console.log("잠금");
@@ -63,6 +81,7 @@ export const CustomOrbitControls = () => {
           );
           break;
       }
+      preventMoveOutside(camera.position);
     };
 
     const handleKeyUp = (event: KeyboardEvent) => {};
